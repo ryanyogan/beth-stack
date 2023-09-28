@@ -4,14 +4,6 @@ import { ctx } from "../context";
 
 export const index = new Elysia()
   .use(ctx)
-  .derive(async (ctx) => {
-    const now = performance.now();
-    const authRequest = ctx.auth.handleRequest(ctx);
-    const session = await authRequest.validate();
-    console.log("auth time", performance.now() - now, "ms");
-
-    return { session };
-  })
   .get("/", async ({ htmlStream, session, db }) => {
     return htmlStream(() => (
       <BaseHtml>
