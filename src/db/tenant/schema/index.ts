@@ -1,2 +1,2 @@
-export { key, session, user, userRelation } from "./auth";
-export { organizations, organizationsRelations } from "./organization";
+export { chats, chatsRelation } from "./chats";
+export { tickets, ticketsRelations } from "./tickets";

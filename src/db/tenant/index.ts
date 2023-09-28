@@ -50,7 +50,7 @@ export async function pushToTenantDb({
   await Bun.write(tempConfigPath, configText);
 
   return new Promise((resolve, reject) => {
-    const proc = Bun.spawn(
+    Bun.spawn(
       ["bunx", "drizzle-kit", "push:sqlite", `--config=${tempConfigPath}`],
       {
         stdout: input ? "inherit" : undefined,
